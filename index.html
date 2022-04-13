@@ -1,0 +1,125 @@
+<!-- Develop by Yw Chua 2022  -->
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>72法则 计算器 by YW Chua</title>
+  </head>
+  <style>
+    .flex-container {
+      border-radius:10px;
+      display: flex;
+      flex-direction: column;
+      background-color: #e8e8e8;
+      align-items: center;
+      margin: 3% 5% 1% 5%;
+    }
+
+    .flex-container>div {
+      padding-bottom: 10px;
+      padding-top: 7px;
+    }
+
+    .text-danger {
+      color: #dc3545 !important;
+    }
+
+    .text-primary {
+      color: #007bff !important;
+    }
+
+    .text-success {
+      color: #28a745 !important;
+    }
+
+    .shadow-lg {
+      box-shadow: 0 1rem 3rem rgba(0, 0, 0, .175) !important;
+    }
+
+    .bg-light {
+      background-color: #f8f9fa !important;
+    }
+
+    .text-center {
+      text-align: center !important;
+    }
+
+    input {
+      margin-top: 10px;
+      width: 250px;
+      height: 20px;
+      border-radius: 8px;
+    }
+
+    input[type="number"]:focus {
+      border: 2px solid #28a745;
+      outline: none;
+    }
+
+    .input-div span {
+      position: absolute;
+      margin-left: 1px;
+      margin-top: 1px;
+    }
+
+    .input-div input {
+      padding-left: 10px;
+    }
+  </style>
+  <body>
+    <form class="shadow-lg p-4 mb-4 bg-light flex-container" name="calForm">
+      <h3 class="text-center">72法则 计算器 </h3>
+      <div class="input-div"> 投资年回报率 Annual Interest Rate (%) <br />
+        <input type="number" id="input1" onkeyup="checkVal()" onChange="checkVal()">
+      </div>
+      <div class="text-success" id="ans" style="display:none;">
+        <strong>
+          <span id="result"></span>
+        </strong>
+      </div>
+      <div class="input-div"> 用多少年来翻倍 Years to Double Return <br />
+        <input type="number" id="input2" onkeyup="checkVal()" onChange="checkVal()">
+      </div>
+      <div class="text-success" id="ans2" style="display:none;">
+        <strong>
+          <span id="result2"></span>
+        </strong>
+      </div>
+      <br />
+    </form>
+    <script>
+      function checkVal() {
+        var rule = 72;
+        var v1 = parseFloat(document.getElementById("input1").value);
+        var v2 = parseFloat(document.getElementById("input2").value);
+        var ans = document.getElementById("ans");
+        var ans2 = document.getElementById("ans2");
+        var result;
+        var result2;
+        if (v1 != "") {
+          result = rule / v1;
+          result = result.toFixed(1);
+          if (!isNaN(result) && v1 > 0) {
+            ans.style.display = "block";
+            document.getElementById("result").innerHTML = v1 + '% 回报率预计需要用 ' + Number(result) + ' 年来翻倍';
+          } else {
+            ans.style.display = "none";
+          }
+        } else {
+          ans.style.display = "none";
+        }
+        if (v2 != "") {
+          result2 = rule / v2;
+          result2 = result2.toFixed(2);
+          if (!isNaN(result2) && v2 > 0) {
+            ans2.style.display = "block";
+            document.getElementById("result2").innerHTML = v2 + '年预计需要 ' + Number(result2) + '% 回报率来翻倍';
+          } else {
+            ans2.style.display = "none";
+          }
+        } else {
+          ans2.style.display = "none";
+        }
+      }
+    </script>
+  </body>
+</html>
