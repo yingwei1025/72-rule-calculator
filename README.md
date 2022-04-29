@@ -5,7 +5,7 @@ The rule of 72 is a quick and easy calculation that helps someone estimate how l
 这是一个可以简单计算出投资回酬要翻倍，需要多少时间的计算方式。
 
 # Formula 
-https://i.insider.com/5f9b0e9b6f5b31001172443d?width=1000&format=jpeg&auto=webp
+![formula](https://i.insider.com/5f9b0e9b6f5b31001172443d)
 
 
 # Preview 预览
